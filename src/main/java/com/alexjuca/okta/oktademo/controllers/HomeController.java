@@ -1,5 +1,6 @@
 package com.alexjuca.okta.oktademo.controllers;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,11 @@ public class HomeController {
             this.highTemp = highTemp;
             this.username = username;
         }
+    }
+
+    @GetMapping("/everyone")
+    @PreAuthorize("hasAuthority('Everyone')")
+    public String everyoneRole() {
+        return "Okta Groups have been mapped to Spring Security authorities correctly!";
     }
 }
