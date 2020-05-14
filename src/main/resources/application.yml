@@ -3,4 +3,4 @@ okta:
     issuer: ${OKTA_DOMAIN}
     client-id: ${OKTA_CLIENT_ID}
     client-secret: ${OKTA_CLIENT_SECRET}
-    redirect-uri: "auth/authorize/callback"
+    redirect-uri: "/auth/authorize/callback"
