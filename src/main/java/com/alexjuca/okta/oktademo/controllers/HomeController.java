@@ -1,6 +1,8 @@
 package com.alexjuca.okta.oktademo.controllers;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,8 +12,8 @@ import java.security.Principal;
 public class HomeController {
 
     @GetMapping("/")
-    public WeatherToday getWeatherToday(Principal principal) {
-        return new WeatherToday("10 C", "22 C", principal.getName());
+    public WeatherToday getWeatherToday(@AuthenticationPrincipal OidcUser user) {
+        return new WeatherToday("10 C", "22 C", user.getFullName());
     }
 
     public static class WeatherToday {
