@@ -15,13 +15,39 @@ public class HomeController {
     }
 
     public static class WeatherToday {
-        private final String lowTemp;
-        private final String highTemp;
-        private final String username;
+        private String lowTemp;
+        private String highTemp;
+        private String username;
+
+        public WeatherToday() {}
 
         public WeatherToday(String lowTemp, String highTemp, String username) {
             this.lowTemp = lowTemp;
             this.highTemp = highTemp;
+            this.username = username;
+        }
+
+        public String getLowTemp() {
+            return lowTemp;
+        }
+
+        public void setLowTemp(String lowTemp) {
+            this.lowTemp = lowTemp;
+        }
+
+        public String getHighTemp() {
+            return highTemp;
+        }
+
+        public void setHighTemp(String highTemp) {
+            this.highTemp = highTemp;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
             this.username = username;
         }
     }
